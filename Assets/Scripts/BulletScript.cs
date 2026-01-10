@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
       if (collision.gameObject.CompareTag("Target"))
       {
          print("hit " + collision.gameObject.name + "!");
-            Destroy(gameObject);
+
+         CreateBulletImpactEffect(collision);
+
+         Destroy(gameObject);
       }
 
       if (collision.gameObject.CompareTag("Wall"))
       {
          print("hit a wall!");
-            Destroy(gameObject);
+
+         CreateBulletImpactEffect(collision);
+         
+         Destroy(gameObject);
       }
+    }
+
+    void CreateBulletImpactEffect(Collision collision)
+    {
+        // Placeholder for bullet impact effect logic
     }
 }
